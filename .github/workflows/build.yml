@@ -12,7 +12,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/archlinux-runner
+  IMAGE_NAME: ${{ github.repository_owner }}/archlinux-runner
 
 jobs:
   build-and-push:
@@ -40,10 +40,6 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=branch
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=sha
             type=raw,value=latest
 
       - name: Build and push Docker image
