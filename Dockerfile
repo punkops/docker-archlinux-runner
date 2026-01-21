@@ -22,10 +22,13 @@ RUN echo 'runner ALL=(ALL) NOPASSWD: /usr/bin/pacman' >> /etc/sudoers.d/runner &
 RUN mkdir -p /workspace && \
     chown -R runner:runner /workspace
 
+RUN mkdir -p /tmp/build && \
+    chown -R runner:runner /tmp/build
+
 USER runner
 
 # Install yay for AUR support
-RUN cd /tmp && \
+RUN cd /tmp/build && \
     git clone https://aur.archlinux.org/yay.git && \
     cd yay && \
     makepkg -si --noconfirm
