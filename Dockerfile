@@ -1,3 +1,9 @@
+LABEL maintainer="nsyntych@punkops.dev"
+LABEL org.opencontainers.image.title="Arch Linux CI Runner"
+LABEL org.opencontainers.image.description="Arch Linux container with base-devel, git, yay, and runner user pre-configured for GitHub Actions"
+LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.url="https://github.com/punkops/docker-archlinux-runner"
+
 FROM archlinux:base-devel
 
 # Install git and other essentials
